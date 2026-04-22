@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+  
+  --primary: #0f172a;
+  --accent: #22c55e;
+  --secondary: #3b82f6;
+  --highlight: #f59e0b;
+  
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --border-color: rgba(59, 130, 246, 0.2);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-highlight: var(--highlight);
+  
+  --font-orbitron: var(--font-orbitron);
+  --font-inter: var(--font-inter);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-orbitron), sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.glass-morphism {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.neon-glow-green {
+  box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+}
+
+.neon-glow-blue {
+  box-shadow: 0 0 10px var(--secondary), 0 0 20px var(--secondary);
+}
+
+.text-glow {
+  text-shadow: 0 0 8px currentColor;
+}
+
