@@ -14,7 +14,6 @@ const upcomingTournaments = [
     time: "18:00 UTC",
     entry: "Free",
     slots: "12/64",
-    color: "accent"
   },
   {
     id: 2,
@@ -24,7 +23,6 @@ const upcomingTournaments = [
     time: "15:00 UTC",
     entry: "$5.00",
     slots: "50/128",
-    color: "secondary"
   },
   {
     id: 3,
@@ -34,78 +32,74 @@ const upcomingTournaments = [
     time: "20:00 UTC",
     entry: "Free",
     slots: "5/32",
-    color: "highlight"
-  },
-  {
-    id: 4,
-    title: "CS2 Global Elite",
-    game: "CS2",
-    date: "May 18",
-    time: "19:00 UTC",
-    entry: "$10.00",
-    slots: "80/100",
-    color: "accent"
-  },
-  {
-    id: 5,
-    title: "League of Legends 5v5",
-    game: "LoL",
-    date: "May 20",
-    time: "14:00 UTC",
-    entry: "Free",
-    slots: "2/16 Teams",
-    color: "secondary"
   }
 ];
 
 export default function UpcomingTournaments() {
   return (
     <section className="max-w-[1280px] mx-auto px-6 overflow-hidden">
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl font-bold font-orbitron uppercase tracking-wider">UPCOMING <span className="text-accent">EVENTS</span></h2>
-        <div className="flex gap-2">
-          <div className="w-8 h-1 bg-accent/20 rounded-full overflow-hidden">
-            <div className="w-1/2 h-full bg-accent" />
-          </div>
+      <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4">
+        <div>
+          <h2 className="text-3xl font-bold font-orbitron uppercase tracking-widest">
+            UPCOMING <span className="text-accent">EVENTS</span>
+          </h2>
+          <p className="text-gray-500 text-sm mt-1 uppercase tracking-tighter">Reserve your slot in the next big battle</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="h-px w-24 bg-gradient-to-r from-transparent to-accent/50 hidden md:block" />
+          <button className="text-[10px] font-bold text-accent hover:underline uppercase tracking-widest font-orbitron">View All Events →</button>
         </div>
       </div>
 
-      <div className="flex gap-6 overflow-x-auto pb-8 no-scrollbar -mx-6 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {upcomingTournaments.map((tournament, idx) => (
           <motion.div
             key={tournament.id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.05 }}
-            className="flex-shrink-0 w-[260px] h-[280px] glass-morphism rounded-2xl p-6 border border-white/5 hover:border-accent/20 transition-all group"
+            transition={{ delay: idx * 0.1, duration: 0.6 }}
+            whileHover={{ y: -10 }}
+            className="glass-morphism rounded-3xl p-8 border border-white/5 hover:border-accent/40 transition-all group relative overflow-hidden h-[340px] flex flex-col"
           >
-            <div className="flex justify-between items-start mb-6">
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center bg-primary border border-white/10 group-hover:bg-accent/10 transition-colors`}>
-                <Zap size={20} className="text-accent" />
+            {/* Ambient background effect */}
+            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/5 blur-[50px] rounded-full group-hover:bg-accent/10 transition-all" />
+            
+            <div className="flex justify-between items-start mb-8 relative z-10">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 group-hover:border-accent/40 transition-all group-hover:neon-glow-green">
+                <Zap size={28} className="text-accent" />
               </div>
               <div className="text-right">
-                <div className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">{tournament.date}</div>
-                <div className="text-xs font-bold text-white">{tournament.time}</div>
+                <div className="text-[10px] text-accent uppercase font-bold tracking-[0.2em] mb-1">{tournament.date}</div>
+                <div className="text-sm font-bold text-white font-orbitron">{tournament.time}</div>
               </div>
             </div>
 
-            <h3 className="font-bold text-sm mb-1 line-clamp-1 font-orbitron uppercase">{tournament.title}</h3>
-            <div className="text-[10px] text-accent font-medium mb-6 uppercase tracking-wider">{tournament.game}</div>
+            <div className="flex-grow relative z-10">
+              <h3 className="font-bold text-xl mb-2 font-orbitron uppercase tracking-tight group-hover:text-accent transition-colors">
+                {tournament.title}
+              </h3>
+              <div className="text-[10px] text-gray-500 font-bold mb-8 uppercase tracking-[0.3em]">{tournament.game}</div>
 
-            <div className="space-y-3 mb-6">
-              <div className="flex justify-between text-[10px]">
-                <span className="text-gray-500 uppercase">Entry Fee</span>
-                <span className="font-bold text-white">{tournament.entry}</span>
-              </div>
-              <div className="flex justify-between text-[10px]">
-                <span className="text-gray-500 uppercase">Slots</span>
-                <span className="font-bold text-white">{tournament.slots}</span>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-gray-500 uppercase font-bold tracking-widest">Entry Fee</span>
+                  <span className="font-bold text-white font-orbitron">{tournament.entry}</span>
+                </div>
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-gray-500 uppercase font-bold tracking-widest">Slots Available</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-20 h-1 bg-white/5 rounded-full overflow-hidden">
+                      <div className="w-1/3 h-full bg-accent" />
+                    </div>
+                    <span className="font-bold text-white font-orbitron">{tournament.slots}</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <button className="w-full py-2 rounded-lg border border-accent/20 text-accent font-bold text-[10px] font-orbitron hover:bg-accent hover:text-background transition-all">
-              REGISTER
+            <button className="w-full mt-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-xs font-orbitron hover:bg-accent hover:text-background hover:border-accent transition-all relative z-10">
+              REGISTER NOW
             </button>
           </motion.div>
         ))}
@@ -113,3 +107,4 @@ export default function UpcomingTournaments() {
     </section>
   );
 }
+

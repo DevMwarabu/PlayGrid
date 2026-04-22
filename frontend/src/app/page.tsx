@@ -5,9 +5,8 @@ import FeaturedTournaments from "@/components/home/FeaturedTournaments";
 import UpcomingTournaments from "@/components/home/UpcomingTournaments";
 import TopPlayers from "@/components/home/TopPlayers";
 import TrendingClips from "@/components/home/TrendingClips";
-import HallOfFame from "@/components/home/HallOfFame";
-import AdBanner from "@/components/home/AdBanner";
 import CTASection from "@/components/home/CTASection";
+
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
@@ -18,11 +17,11 @@ export default function Home() {
       {/* 1. Hero Section */}
       <Hero />
 
-      <div className="relative z-10 space-y-24 py-24">
+      <div className="relative z-10 space-y-32 pb-32">
         {/* 2. Live Tournaments */}
         <FeaturedTournaments />
 
-        {/* 3. Upcoming Tournaments */}
+        {/* 3. Upcoming Tournaments - Now optimized to 3 items */}
         <UpcomingTournaments />
 
         {/* 4. Leaderboard Preview */}
@@ -31,15 +30,10 @@ export default function Home() {
         {/* 5. Trending Clips */}
         <TrendingClips />
 
-        {/* 6. Hall of Fame */}
-        <HallOfFame />
-
-        {/* 7. Ad Banner */}
-        <AdBanner />
-
-        {/* 8. CTA Section */}
+        {/* 6. CTA Section - Now with background video */}
         <CTASection />
       </div>
+
 
       {/* 9. Footer */}
       <Footer />
