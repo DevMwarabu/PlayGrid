@@ -54,11 +54,11 @@ export default function Hero() {
               <span className="flex h-2 w-2 rounded-full bg-accent animate-ping" />
               <span className="text-[10px] font-bold text-accent uppercase tracking-widest">Live: Arena Season 4</span>
             </div>
-            <h1 className="text-6xl lg:text-8xl font-bold font-orbitron leading-[1] mb-8 tracking-tighter uppercase">
+            <h1 className="text-5xl lg:text-7xl font-bold font-orbitron leading-[1] mb-8 tracking-tighter uppercase">
               COMPETE. WIN. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">DOMINATE</span> THE ARENA.
             </h1>
-            <p className="text-gray-200 text-xl mb-12 max-w-2xl leading-relaxed font-medium">
+            <p className="text-gray-200 text-lg mb-12 max-w-2xl leading-relaxed font-medium">
               Join the world&apos;s most elite gaming ecosystem. Climb the leaderboard, win cash prizes, and build your legacy.
             </p>
             <div className="flex flex-wrap gap-6">
